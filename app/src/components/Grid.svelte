@@ -2,6 +2,8 @@
 	export let grid = [2, 6];
 	import locale from "@reuters-graphics/d3-locale";
 	import GapChart from "./charts/GapChart.svelte";
+	import LayoutGrid, { Cell } from '@smui/layout-grid';
+
 	import { max } from "d3-array";
 
 	import * as ccaaData2 from "../../public/gap-chart-ca.json"; //dose2_perc_total
@@ -171,13 +173,16 @@
 	bind:clientWidth={width}
 	bind:clientHeight={height}
 >
+<LayoutGrid>
 	<div
 		class="container"
 		style="grid-template-rows: {row}; grid-template-columns: {col};"
+		
 	>
 		{#each { length: grid[0] } as _, i (i)}
 			{#each { length: grid[1] } as _, j (j)}
-				<div class={coloring(i, j)}>
+				<div class={coloring(i, j)}
+				spanDevices={{ desktop: 6, tablet: 4, phone: 2 }}>
 					{#if getItem(i, j) != " "}
 						<span class="ccaa-label"
 							>{sanitizedCCAA(getItem(i, j))}</span
@@ -199,8 +204,8 @@
 			{/each}
 		{/each}
 	</div>
+</LayoutGrid>
 </div>
-
 <style>
 	.graphic {
 		height: 800px;

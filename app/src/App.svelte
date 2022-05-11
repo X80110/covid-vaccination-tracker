@@ -162,7 +162,7 @@
 				<span class="belowNational">⬤</span> Below national
 			</p>
 
-			<div>
+			<div class="contentContainer">
 				<Grid {grid} />
 				<p class="center robot">
 					Chart data updated on {texts.today}
@@ -388,7 +388,7 @@
 		font-family: "Merriweather Sans", Arial, sans-serif;
 		font-size: 13px;
 		line-height: 1.5;
-		max-width: 25vw;
+		max-width: 30em;
 		margin: 0 auto;
 		text-align: center;
 	}
